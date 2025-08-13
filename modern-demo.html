@@ -620,55 +620,32 @@
         /* Mobile Footer Optimization */
         @media (max-width: 768px) {
             .footer {
-                padding-block: var(--space-lg);
-                margin-top: var(--space-lg);
-                background: linear-gradient(135deg, var(--color-neutral-900), var(--color-neutral-800));
+                padding-block: var(--space-sm);
+                margin-top: var(--space-md);
             }
 
             .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: var(--space-lg);
-                row-gap: var(--space-md);
-            }
-
-            .footer-section {
-                display: flex;
-                align-items: center;
-                text-align: left;
-                gap: var(--space-sm);
-                padding: var(--space-sm);
-                background: rgba(255, 255, 255, 0.05);
-                border-radius: var(--radius-lg);
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
-                border: 1px solid rgba(255, 255, 255, 0.1);
+                grid-template-columns: repeat(4, 1fr);
+                gap: var(--space-xs);
             }
 
             .footer-icon {
-                width: 2.5rem;
-                height: 2.5rem;
-                font-size: var(--font-size-base);
-                margin-bottom: 0;
-                flex-shrink: 0;
-                background: linear-gradient(135deg, var(--color-accent), var(--color-warning));
-                box-shadow: var(--shadow-md);
-            }
-
-            .footer-content {
-                flex: 1;
+                width: 1.25rem;
+                height: 1.25rem;
+                font-size: 10px;
+                margin-bottom: var(--space-3xs);
             }
 
             .footer-section h4 {
-                font-size: var(--font-size-sm);
-                margin-bottom: var(--space-3xs);
-                font-weight: 600;
-                color: white;
+                font-size: 11px;
+                margin-bottom: 2px;
+                font-weight: 500;
             }
 
             .footer-section p {
-                font-size: var(--font-size-xs);
-                line-height: 1.4;
-                color: var(--color-neutral-300);
+                font-size: 9px;
+                line-height: 1.1;
+                opacity: 0.8;
             }
         }
 
@@ -964,37 +941,29 @@
                     <div class="footer-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <div class="footer-content">
-                        <h4>Güvenli Alışveriş</h4>
-                        <p>SSL sertifikası ile korunan ödeme sistemi</p>
-                    </div>
+                    <h4>Güvenli Alışveriş</h4>
+                    <p>SSL sertifikası ile korunan ödeme sistemi</p>
                 </div>
                 <div class="footer-section">
                     <div class="footer-icon">
                         <i class="fas fa-truck"></i>
                     </div>
-                    <div class="footer-content">
-                        <h4>Hızlı Teslimat</h4>
-                        <p>24 saat içinde kargoda</p>
-                    </div>
+                    <h4>Hızlı Teslimat</h4>
+                    <p>24 saat içinde kargoda</p>
                 </div>
                 <div class="footer-section">
                     <div class="footer-icon">
                         <i class="fas fa-undo"></i>
                     </div>
-                    <div class="footer-content">
-                        <h4>Kolay İade</h4>
-                        <p>30 gün içinde ücretsiz iade</p>
-                    </div>
+                    <h4>Kolay İade</h4>
+                    <p>30 gün içinde ücretsiz iade</p>
                 </div>
                 <div class="footer-section">
                     <div class="footer-icon">
                         <i class="fas fa-heart"></i>
                     </div>
-                    <div class="footer-content">
-                        <h4>Müşteri Memnuniyeti</h4>
-                        <p>%99 memnuniyet oranı</p>
-                    </div>
+                    <h4>Müşteri Memnuniyeti</h4>
+                    <p>%99 memnuniyet oranı</p>
                 </div>
             </div>
         </div>
