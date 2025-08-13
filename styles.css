@@ -1,0 +1,946 @@
+/* Genel Stiller */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fafafa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Tasarım Seçici */
+.design-selector {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.design-btn {
+    padding: 8px 16px;
+    border: none;
+    background: #f0f0f0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    transition: all 0.3s ease;
+}
+
+.design-btn.active {
+    background: #333;
+    color: white;
+}
+
+.design-btn:hover {
+    background: #555;
+    color: white;
+}
+
+/* Tasarım Gizleme */
+.design {
+    display: none;
+}
+
+.design.active {
+    display: block;
+}
+
+/* ===== TASARIM 1: MINIMAL ELEGANCE ===== */
+.design-1 {
+    background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+}
+
+.design-1 .header {
+    background: white;
+    padding: 20px 0;
+    border-bottom: 1px solid #f0f0f0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.design-1 .logo h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: #333;
+    letter-spacing: 2px;
+}
+
+.design-1 .logo span {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: #666;
+    font-weight: 300;
+}
+
+.design-1 .nav {
+    display: flex;
+    gap: 30px;
+}
+
+.design-1 .nav-link {
+    text-decoration: none;
+    color: #666;
+    font-weight: 500;
+    font-size: 16px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.design-1 .nav-link.active,
+.design-1 .nav-link:hover {
+    color: #333;
+}
+
+.design-1 .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #333;
+}
+
+.design-1 .header-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.design-1 .search-btn,
+.design-1 .cart-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #666;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.design-1 .search-btn:hover,
+.design-1 .cart-btn:hover {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.design-1 .page-header {
+    text-align: center;
+    padding: 60px 0 40px;
+}
+
+.design-1 .page-header h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.design-1 .page-header p {
+    font-size: 18px;
+    color: #666;
+    font-weight: 300;
+}
+
+.design-1 .products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 40px 0 80px;
+}
+
+.design-1 .product-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.design-1 .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.design-1 .product-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.design-1 .product-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.design-1 .product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.design-1 .discount-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #FFB703;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.design-1 .product-info {
+    padding: 20px;
+}
+
+.design-1 .brand {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    color: #666;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.design-1 .product-name {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.design-1 .price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.design-1 .old-price {
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.design-1 .new-price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #E63946;
+}
+
+.design-1 .footer {
+    background: white;
+    padding: 60px 0;
+    border-top: 1px solid #f0f0f0;
+}
+
+.design-1 .footer-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.design-1 .footer-section {
+    text-align: center;
+}
+
+.design-1 .footer-icon {
+    width: 60px;
+    height: 60px;
+    background: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.design-1 .footer-section h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.design-1 .footer-section p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* ===== TASARIM 2: MODERN LUXURY ===== */
+.design-2 {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.design-2 .header {
+    background: linear-gradient(135deg, #1D3557 0%, #2a4a7a 100%);
+    padding: 25px 0;
+    color: white;
+}
+
+.design-2 .logo h1 {
+    color: white;
+    font-size: 32px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.design-2 .logo span {
+    color: #a8dadc;
+}
+
+.design-2 .nav-link {
+    color: #a8dadc;
+}
+
+.design-2 .nav-link.active,
+.design-2 .nav-link:hover {
+    color: white;
+}
+
+.design-2 .nav-link.active::after {
+    background: #FFB703;
+}
+
+.design-2 .search-btn,
+.design-2 .cart-btn {
+    color: #a8dadc;
+}
+
+.design-2 .search-btn:hover,
+.design-2 .cart-btn:hover {
+    background: rgba(255,255,255,0.1);
+    color: white;
+}
+
+.design-2 .page-header h2 {
+    color: #1D3557;
+    font-size: 52px;
+}
+
+.design-2 .product-card {
+    border: 1px solid #e9ecef;
+    box-shadow: 0 6px 25px rgba(29,53,87,0.1);
+}
+
+.design-2 .product-card:hover {
+    border-color: #1D3557;
+    box-shadow: 0 10px 35px rgba(29,53,87,0.2);
+}
+
+.design-2 .new-price {
+    color: #1D3557;
+}
+
+.design-2 .footer {
+    background: linear-gradient(135deg, #1D3557 0%, #2a4a7a 100%);
+    color: white;
+}
+
+.design-2 .footer-icon {
+    background: rgba(255,255,255,0.1);
+    color: white;
+}
+
+.design-2 .footer-section h4 {
+    color: white;
+}
+
+.design-2 .footer-section p {
+    color: #a8dadc;
+}
+
+/* ===== TASARIM 3: SCANDINAVIAN MINIMAL ===== */
+.design-3 {
+    background: #fefefe;
+}
+
+.design-3 .header {
+    background: white;
+    padding: 30px 0;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.design-3 .logo h1 {
+    color: #2c3e50;
+    font-weight: 300;
+    letter-spacing: 4px;
+}
+
+.design-3 .logo span {
+    color: #7f8c8d;
+    font-weight: 400;
+}
+
+.design-3 .nav-link {
+    color: #7f8c8d;
+    font-weight: 400;
+}
+
+.design-3 .nav-link.active,
+.design-3 .nav-link:hover {
+    color: #2c3e50;
+}
+
+.design-3 .nav-link.active::after {
+    background: #3498db;
+}
+
+.design-3 .page-header h2 {
+    color: #2c3e50;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.design-3 .product-card {
+    background: white;
+    border: 1px solid #ecf0f1;
+    box-shadow: none;
+    transition: all 0.4s ease;
+}
+
+.design-3 .product-card:hover {
+    border-color: #3498db;
+    box-shadow: 0 8px 25px rgba(52,152,219,0.15);
+}
+
+.design-3 .new-price {
+    color: #3498db;
+}
+
+.design-3 .footer {
+    background: #2c3e50;
+    color: white;
+}
+
+.design-3 .footer-icon {
+    background: #34495e;
+    color: #3498db;
+}
+
+/* ===== TASARIM 4: ARTISAN CRAFT ===== */
+.design-4 {
+    background: #faf8f5;
+}
+
+.design-4 .header {
+    background: #8b4513;
+    color: white;
+    padding: 25px 0;
+}
+
+.design-4 .logo h1 {
+    color: #f4a460;
+    font-weight: 600;
+}
+
+.design-4 .logo span {
+    color: #deb887;
+}
+
+.design-4 .nav-link {
+    color: #deb887;
+}
+
+.design-4 .nav-link.active,
+.design-4 .nav-link:hover {
+    color: white;
+}
+
+.design-4 .nav-link.active::after {
+    background: #f4a460;
+}
+
+.design-4 .page-header h2 {
+    color: #8b4513;
+    font-weight: 600;
+}
+
+.design-4 .product-card {
+    background: white;
+    border: 2px solid #f4a460;
+    box-shadow: 0 4px 15px rgba(139,69,19,0.1);
+}
+
+.design-4 .product-card:hover {
+    border-color: #8b4513;
+    box-shadow: 0 8px 25px rgba(139,69,19,0.2);
+}
+
+.design-4 .new-price {
+    color: #8b4513;
+}
+
+.design-4 .footer {
+    background: #8b4513;
+    color: white;
+}
+
+.design-4 .footer-icon {
+    background: #f4a460;
+    color: #8b4513;
+}
+
+/* ===== TASARIM 5: URBAN CHIC ===== */
+.design-5 {
+    background: #f8f9fa;
+}
+
+.design-5 .header {
+    background: #2c3e50;
+    color: white;
+    padding: 20px 0;
+}
+
+.design-5 .logo h1 {
+    color: #e74c3c;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.design-5 .logo span {
+    color: #bdc3c7;
+}
+
+.design-5 .nav-link {
+    color: #bdc3c7;
+    font-weight: 500;
+}
+
+.design-5 .nav-link.active,
+.design-5 .nav-link:hover {
+    color: white;
+}
+
+.design-5 .nav-link.active::after {
+    background: #e74c3c;
+}
+
+.design-5 .page-header h2 {
+    color: #2c3e50;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.design-5 .product-card {
+    background: white;
+    border-radius: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.design-5 .product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.design-5 .new-price {
+    color: #e74c3c;
+}
+
+.design-5 .footer {
+    background: #2c3e50;
+    color: white;
+}
+
+.design-5 .footer-icon {
+    background: #e74c3c;
+    color: white;
+}
+
+/* Tüm tasarımlar için ortak ürün kartı stilleri */
+.design-2 .product-card,
+.design-3 .product-card,
+.design-4 .product-card,
+.design-5 .product-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.design-2 .product-card:hover,
+.design-3 .product-card:hover,
+.design-4 .product-card:hover,
+.design-5 .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.design-2 .product-image,
+.design-3 .product-image,
+.design-4 .product-image,
+.design-5 .product-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.design-2 .product-image img,
+.design-3 .product-image img,
+.design-4 .product-image img,
+.design-5 .product-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.design-2 .product-card:hover .product-image img,
+.design-3 .product-card:hover .product-image img,
+.design-4 .product-card:hover .product-image img,
+.design-5 .product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.design-2 .discount-badge,
+.design-3 .discount-badge,
+.design-4 .discount-badge,
+.design-5 .discount-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #FFB703;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.design-2 .product-info,
+.design-3 .product-info,
+.design-4 .product-info,
+.design-5 .product-info {
+    padding: 20px;
+}
+
+.design-2 .brand,
+.design-3 .brand,
+.design-4 .brand,
+.design-5 .brand {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    color: #666;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.design-2 .product-name,
+.design-3 .product-name,
+.design-4 .product-name,
+.design-5 .product-name {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.design-2 .price,
+.design-3 .price,
+.design-4 .price,
+.design-5 .price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.design-2 .old-price,
+.design-3 .old-price,
+.design-4 .old-price,
+.design-5 .old-price {
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+/* Tasarım 2 için özel stiller */
+.design-2 .product-card {
+    border: 1px solid #e9ecef;
+    box-shadow: 0 6px 25px rgba(29,53,87,0.1);
+}
+
+.design-2 .product-card:hover {
+    border-color: #1D3557;
+    box-shadow: 0 10px 35px rgba(29,53,87,0.2);
+}
+
+/* Tasarım 3 için özel stiller */
+.design-3 .product-card {
+    border: 1px solid #ecf0f1;
+    box-shadow: none;
+    transition: all 0.4s ease;
+}
+
+.design-3 .product-card:hover {
+    border-color: #3498db;
+    box-shadow: 0 8px 25px rgba(52,152,219,0.15);
+}
+
+/* Tasarım 4 için özel stiller */
+.design-4 .product-card {
+    border: 2px solid #f4a460;
+    box-shadow: 0 4px 15px rgba(139,69,19,0.1);
+}
+
+.design-4 .product-card:hover {
+    border-color: #8b4513;
+    box-shadow: 0 8px 25px rgba(139,69,19,0.2);
+}
+
+/* Tasarım 5 için özel stiller */
+.design-5 .product-card {
+    border-radius: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.design-5 .product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+/* Responsive Tasarım */
+@media (max-width: 1024px) {
+    .design-1 .products-grid,
+    .design-2 .products-grid,
+    .design-3 .products-grid,
+    .design-4 .products-grid,
+    .design-5 .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+    
+    .design-1 .footer-content,
+    .design-2 .footer-content,
+    .design-3 .footer-content,
+    .design-4 .footer-content,
+    .design-5 .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .design-1 .products-grid,
+    .design-2 .products-grid,
+    .design-3 .products-grid,
+    .design-4 .products-grid,
+    .design-5 .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .design-1 .nav,
+    .design-2 .nav,
+    .design-3 .nav,
+    .design-4 .nav,
+    .design-5 .nav {
+        display: none;
+    }
+    
+    .design-1 .page-header h2,
+    .design-2 .page-header h2,
+    .design-3 .page-header h2,
+    .design-4 .page-header h2,
+    .design-5 .page-header h2 {
+        font-size: 36px;
+    }
+    
+    .design-1 .footer-content,
+    .design-2 .footer-content,
+    .design-3 .footer-content,
+    .design-4 .footer-content,
+    .design-5 .footer-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .design-selector {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        top: auto;
+        flex-direction: row;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .design-1 .products-grid,
+    .design-2 .products-grid,
+    .design-3 .products-grid,
+    .design-4 .products-grid,
+    .design-5 .products-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .design-1 .page-header h2,
+    .design-2 .page-header h2,
+    .design-3 .page-header h2,
+    .design-4 .page-header h2,
+    .design-5 .page-header h2 {
+        font-size: 28px;
+    }
+    
+    .design-1 .container,
+    .design-2 .container,
+    .design-3 .container,
+    .design-4 .container,
+    .design-5 .container {
+        padding: 0 15px;
+    }
+    
+    .design-1 .product-info,
+    .design-2 .product-info,
+    .design-3 .product-info,
+    .design-4 .product-info,
+    .design-5 .product-info {
+        padding: 15px;
+    }
+    
+    .design-1 .product-image img,
+    .design-2 .product-image img,
+    .design-3 .product-image img,
+    .design-4 .product-image img,
+    .design-5 .product-image img {
+        height: 300px;
+    }
+}
+
+/* Loading animasyonu */
+body:not(.loaded) {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+/* Smooth transitions */
+.design {
+    transition: opacity 0.3s ease;
+}
+
+/* Hover efektleri için ek iyileştirmeler */
+.product-card {
+    cursor: pointer;
+}
+
+.product-card:hover .discount-badge {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* Tasarım seçici animasyonları */
+.design-selector {
+    transition: all 0.3s ease;
+}
+
+.design-selector:hover {
+    transform: scale(1.05);
+}
+
+/* Header scroll animasyonu */
+.header {
+    transition: transform 0.3s ease;
+}
+
+/* Ürün kartı loading state */
+.product-image img {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product-image img[src] {
+    opacity: 1;
+}
+
+/* Footer icon hover efektleri */
+.footer-icon {
+    transition: all 0.3s ease;
+}
+
+.footer-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Nav link hover animasyonları */
+.nav-link {
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    transform: translateY(-2px);
+}
+
+/* Button hover efektleri */
+.search-btn,
+.cart-btn {
+    transition: all 0.3s ease;
+}
+
+.search-btn:hover,
+.cart-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Header Layout */
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.nav {
+    display: flex;
+    gap: 30px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 15px;
+}

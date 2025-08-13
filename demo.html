@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELEGANCE - Butik Moda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Modern CSS Variables */
+        :root {
+            --primary-color: #333;
+            --secondary-color: #666;
+            --accent-color: #E63946;
+            --success-color: #10B981;
+            --info-color: #3B82F6;
+            --warning-color: #F59E0B;
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F8FAFC;
+            --bg-tertiary: #F1F5F9;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --border-radius: 12px;
+            --border-radius-lg: 16px;
+            --border-radius-xl: 20px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+        }
+
+        /* Modern Backdrop Blur */
+        .backdrop-blur {
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+        }
+
+        /* Glassmorphism Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Dropdown Menu Styles */
+        .nav {
+            position: relative;
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            min-width: 320px;
+            box-shadow: var(--shadow-xl), 0 0 0 1px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-xl);
+            top: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%) translateY(-8px);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            pointer-events: none;
+        }
+        
+        .dropdown-content.show {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+            pointer-events: auto;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+            pointer-events: auto;
+        }
+        
+        .dropdown-content::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: none;
+            border-right: none;
+            transform: translateX(-50%) rotate(45deg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .dropdown-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-xl);
+        }
+        
+        .dropdown-category {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .dropdown-category h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding-bottom: var(--spacing-sm);
+        }
+
+        .dropdown-category h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 24px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-color), var(--warning-color));
+            border-radius: 1px;
+        }
+        
+        .dropdown-category ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .dropdown-category li {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .dropdown-category a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-size: 14px;
+            font-weight: 500;
+            transition: var(--transition);
+            display: block;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--spacing-sm);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dropdown-category a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            transition: var(--transition);
+        }
+        
+        .dropdown-category a:hover {
+            color: var(--primary-color);
+            background: rgba(59, 130, 246, 0.08);
+            transform: translateX(4px);
+        }
+
+        .dropdown-category a:hover::before {
+            left: 100%;
+        }
+        
+        .nav-link.has-dropdown {
+            position: relative;
+        }
+        
+        .nav-link.has-dropdown::after {
+            content: '\f078';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-left: var(--spacing-sm);
+            font-size: 10px;
+            transition: var(--transition);
+            opacity: 0.7;
+        }
+        
+        .dropdown:hover .nav-link.has-dropdown::after {
+            transform: rotate(180deg);
+            opacity: 1;
+        }
+
+        /* Modern Mobile Navigation */
+        .mobile-nav-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 9999;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .mobile-nav-overlay.show {
+            opacity: 1;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .dropdown-content {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 85%;
+                max-width: 400px;
+                height: 100vh;
+                background: var(--bg-primary);
+                padding: var(--spacing-2xl) var(--spacing-xl);
+                border-radius: 0;
+                border-top-left-radius: var(--border-radius-xl);
+                border-bottom-left-radius: var(--border-radius-xl);
+                transform: translateX(0);
+                overflow-y: auto;
+                z-index: 10000;
+                box-shadow: -10px 0 25px rgba(0, 0, 0, 0.1);
+                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .dropdown-content.show {
+                right: 0;
+            }
+
+            .dropdown-content::before {
+                display: none;
+            }
+            
+            .dropdown-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-2xl);
+            }
+            
+            .mobile-close {
+                position: absolute;
+                top: var(--spacing-xl);
+                right: var(--spacing-xl);
+                background: var(--bg-tertiary);
+                border: none;
+                font-size: 18px;
+                color: var(--secondary-color);
+                cursor: pointer;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+            }
+
+            .mobile-close:hover {
+                background: var(--accent-color);
+                color: white;
+                transform: scale(1.1);
+            }
+
+            .dropdown-category h4 {
+                font-size: 16px;
+                margin-bottom: var(--spacing-lg);
+            }
+
+            .dropdown-category a {
+                font-size: 15px;
+                padding: var(--spacing-md) var(--spacing-lg);
+                margin-bottom: var(--spacing-xs);
+                border-radius: var(--spacing-md);
+            }
+        }
+        
+        /* Modern Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--bg-tertiary);
+            border-top: 2px solid var(--info-color);
+            border-radius: 50%;
+            animation: modernSpin 0.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+        
+        @keyframes modernSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Modern Category Filter Pills */
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            margin: var(--spacing-2xl) 0;
+            flex-wrap: wrap;
+            padding: 0 var(--spacing-md);
+        }
+        
+        .filter-pill {
+            padding: var(--spacing-md) var(--spacing-xl);
+            background: var(--bg-secondary);
+            border: 2px solid transparent;
+            border-radius: var(--border-radius-xl);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--secondary-color);
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .filter-pill::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: var(--transition);
+        }
+
+        .filter-pill:hover::before {
+            left: 100%;
+        }
+        
+        .filter-pill.active {
+            background: linear-gradient(135deg, var(--primary-color), #4A5568);
+            color: white;
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .filter-pill:hover:not(.active) {
+            background: var(--bg-tertiary);
+            border-color: var(--secondary-color);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        @media (max-width: 768px) {
+            .filter-pill {
+                padding: var(--spacing-md) var(--spacing-lg);
+                font-size: 13px;
+            }
+        }
+
+        /* Modern Notification styles */
+        .notification {
+            position: fixed;
+            top: var(--spacing-xl);
+            right: var(--spacing-xl);
+            background: var(--bg-primary);
+            color: var(--primary-color);
+            padding: var(--spacing-lg) var(--spacing-xl);
+            border-radius: var(--border-radius);
+            z-index: 10000;
+            opacity: 0;
+            transform: translateX(120%) scale(0.8);
+            transition: var(--transition);
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            min-width: 280px;
+            font-weight: 500;
+        }
+
+        .notification.show {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+        }
+
+        .notification.success {
+            background: linear-gradient(135deg, var(--success-color), #059669);
+            color: white;
+            border-color: var(--success-color);
+        }
+
+        .notification.info {
+            background: linear-gradient(135deg, var(--info-color), #2563EB);
+            color: white;
+            border-color: var(--info-color);
+        }
+
+        @media (max-width: 768px) {
+            .notification {
+                top: var(--spacing-md);
+                right: var(--spacing-md);
+                left: var(--spacing-md);
+                min-width: auto;
+                padding: var(--spacing-md) var(--spacing-lg);
+                font-size: 14px;
+            }
+        }
+
+        /* Modern Button Enhancements */
+        .search-btn, .cart-btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .search-btn::before, .cart-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: var(--transition);
+        }
+
+        .search-btn:active::before, .cart-btn:active::before {
+            width: 100px;
+            height: 100px;
+        }
+
+        /* Modern Page Header */
+        .page-header {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 200%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+            opacity: 0.5;
+        }
+
+        /* Enhanced Product Grid */
+        @media (max-width: 480px) {
+            .products-grid {
+                padding: 0 var(--spacing-sm);
+            }
+        }
+
+        /* Modern Scroll Behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Enhanced Focus States */
+        .dropdown-category a:focus,
+        .filter-pill:focus,
+        .nav-link:focus {
+            outline: 2px solid var(--info-color);
+            outline-offset: 2px;
+        }
+
+        /* Modern Header Enhancement */
+        .header {
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        /* Micro-interactions */
+        .product-card {
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        /* Modern Typography */
+        h1, h2, h3 {
+            letter-spacing: -0.025em;
+        }
+
+        /* Enhanced Mobile Menu Button */
+        @media (max-width: 768px) {
+            .nav-link.has-dropdown {
+                position: relative;
+                padding: var(--spacing-md) var(--spacing-lg);
+                background: var(--bg-secondary);
+                border-radius: var(--spacing-md);
+                margin: 0 var(--spacing-xs);
+            }
+
+            .nav-link.has-dropdown:hover {
+                background: var(--bg-tertiary);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="notification" class="notification"></div>
+    
+    <div class="design design-1 active">
+        <header class="header">
+            <div class="container">
+                <div class="logo">
+                    <h1>ELEGANCE</h1>
+                    <span>Butik Moda</span>
+                </div>
+                <nav class="nav">
+                    <a href="#" class="nav-link active" data-category="all">En Yeniler</a>
+                    
+                    <div class="dropdown">
+                        <a href="#" class="nav-link has-dropdown" data-category="kadın">Kadın</a>
+                        <div class="dropdown-content">
+                            <button class="mobile-close" onclick="closeDropdown(this)">&times;</button>
+                            <div class="dropdown-grid">
+                                <div class="dropdown-category">
+                                    <h4>Elbiseler</h4>
+                                    <ul>
+                                        <li><a href="#" data-subcategory="Günlük Elbiseler">Günlük Elbiseler</a></li>
+                                        <li><a href="#" data-subcategory="Gece Elbiseleri">Gece Elbiseleri</a></li>
+                                        <li><a href="#" data-subcategory="Kokteyl Elbiseleri">Kokteyl Elbiseleri</a></li>
+                                        <li><a href="#" data-subcategory="Yazlık Elbiseler">Yazlık Elbiseler</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-category">
+                                    <h4>Üst Giyim</h4>
+                                    <ul>
+                                        <li><a href="#" data-subcategory="Bluzlar">Bluzlar</a></li>
+                                        <li><a href="#" data-subcategory="Gömlekler">Gömlekler</a></li>
+                                        <li><a href="#" data-subcategory="T-Shirtler">T-Shirtler</a></li>
+                                        <li><a href="#" data-subcategory="Kazaklar">Kazaklar</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-category">
+                                    <h4>Alt Giyim</h4>
+                                    <ul>
+                                        <li><a href="#" data-subcategory="Pantolonlar">Pantolonlar</a></li>
+                                        <li><a href="#" data-subcategory="Etekler">Etekler</a></li>
+                                        <li><a href="#" data-subcategory="Şortlar">Şortlar</a></li>
+                                        <li><a href="#" data-subcategory="Legginsler">Legginsler</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-category">
+                                    <h4>Dış Giyim</h4>
+                                    <ul>
+                                        <li><a href="#" data-subcategory="Ceketler">Ceketler</a></li>
+                                        <li><a href="#" data-subcategory="Montlar">Montlar</a></li>
+                                        <li><a href="#" data-subcategory="Hırkalar">Hırkalar</a></li>
+                                        <li><a href="#" data-subcategory="Blazerlar">Blazerlar</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-category">
+                                    <h4>Ayakkabı</h4>
+                                    <ul>
+                                        <li><a href="#" data-subcategory="Topuklu">Topuklu</a></li>
+                                        <li><a href="#" data-subcategory="Spor Ayakkabı">Spor Ayakkabı</a></li>
+                                        <li><a href="#" data-subcategory="Bot">Bot</a></li>
+                                        <li><a href="#" data-subcategory="Sandalet">Sandalet</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-category">
+                                    <h4>Aksesuar</h4>
+                                    <ul>
+                                        <li><a href="#" data-subcategory="Çantalar">Çantalar</a></li>
+                                        <li><a href="#" data-subcategory="Takılar">Takılar</a></li>
+                                        <li><a href="#" data-subcategory="Şapkalar">Şapkalar</a></li>
+                                        <li><a href="#" data-subcategory="Kemerler">Kemerler</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dropdown">
+                        <a href="#" class="nav-link has-dropdown" data-category="erkek">Erkek</a>
+                        <div class="dropdown-content">
+                            <button class="mobile-close" onclick="closeDropdown(this)">&times;</button>
+                            <div class="dropdown-grid">
+                                <div class="dropdown-category">
+                                    <h4>Üst Giyim</h4>
+                                    <ul>
+                                        <li><a href="#" data-subcategory="Gömlekler">Gömlekler</a></li>
+                                        <li><a href="#" data-subcategory="T-Shirtler">T-Shirtler</a></li>
+                                        <li><a href="#" data-subcategory="Polo Yaka">Polo Yaka</a></li>
+                                        <li><a href="#" data-subcategory="Kazaklar">Kazaklar</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-category">
+                                    <h4>Alt Giyim</h4>
+                                    <ul>
+                                        <li><a href="#" data-subcategory="Pantolonlar">Pantolonlar</a></li>
+                                        <li><a href="#" data-subcategory="Şortlar">Şortlar</a></li>
+                                        <li><a href="#" data-subcategory="Jean">Jean</a></li>
+                                        <li><a href="#" data-subcategory="Eşofman">Eşofman</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-category">
+                                    <h4>Dış Giyim</h4>
+                                    <ul>
+                                        <li><a href="#" data-subcategory="Ceketler">Ceketler</a></li>
+                                        <li><a href="#" data-subcategory="Montlar">Montlar</a></li>
+                                        <li><a href="#" data-subcategory="Hırkalar">Hırkalar</a></li>
+                                        <li><a href="#" data-subcategory="Blazerlar">Blazerlar</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-category">
+                                    <h4>Ayakkabı</h4>
+                                    <ul>
+                                        <li><a href="#" data-subcategory="Spor Ayakkabı">Spor Ayakkabı</a></li>
+                                        <li><a href="#" data-subcategory="Klasik">Klasik</a></li>
+                                        <li><a href="#" data-subcategory="Bot">Bot</a></li>
+                                        <li><a href="#" data-subcategory="Sandalet">Sandalet</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-category">
+                                    <h4>Aksesuar</h4>
+                                    <ul>
+                                        <li><a href="#" data-subcategory="Çantalar">Çantalar</a></li>
+                                        <li><a href="#" data-subcategory="Saatler">Saatler</a></li>
+                                        <li><a href="#" data-subcategory="Şapkalar">Şapkalar</a></li>
+                                        <li><a href="#" data-subcategory="Kemerler">Kemerler</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-category">
+                                    <h4>İç Giyim</h4>
+                                    <ul>
+                                        <li><a href="#" data-subcategory="Boxer">Boxer</a></li>
+                                        <li><a href="#" data-subcategory="Atlet">Atlet</a></li>
+                                        <li><a href="#" data-subcategory="Çorap">Çorap</a></li>
+                                        <li><a href="#" data-subcategory="Pijama">Pijama</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="nav-link">Koleksiyon</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <button class="cart-btn"><i class="fas fa-shopping-bag"></i></button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="container">
+                <div class="page-header">
+                    <h2 id="page-title">En Yeniler</h2>
+                    <p id="page-subtitle">Bu sezonun en trend parçaları</p>
+                </div>
+
+                <!-- Category Filter Pills -->
+                <div class="category-filter">
+                    <button class="filter-pill active" data-category="all">Tümü</button>
+                    <button class="filter-pill" data-category="kadın">Kadın</button>
+                    <button class="filter-pill" data-category="erkek">Erkek</button>
+                </div>
+
+                <div class="products-grid" id="products-grid">
+                    <!-- Ürünler JavaScript ile yüklenecek -->
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="footer-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Güvenli Alışveriş</h4>
+                        <p>SSL sertifikası ile korunan ödeme</p>
+                    </div>
+                    <div class="footer-section">
+                        <div class="footer-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h4>Hızlı Teslimat</h4>
+                        <p>24 saat içinde kargoda</p>
+                    </div>
+                    <div class="footer-section">
+                        <div class="footer-icon">
+                            <i class="fas fa-undo"></i>
+                        </div>
+                        <h4>Kolay İade</h4>
+                        <p>30 gün içinde ücretsiz iade</p>
+                    </div>
+                    <div class="footer-section">
+                        <div class="footer-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>Müşteri Memnuniyeti</h4>
+                        <p>%99 memnuniyet oranı</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Ürün verileri
+        const products = [
+            {
+                id: 1,
+                image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=500&fit=crop',
+                brand: 'ZARA',
+                name: 'Çiçekli Yaz Elbisesi',
+                old_price: 899,
+                new_price: 674,
+                discount: 25,
+                category: 'kadın'
+            },
+            {
+                id: 2,
+                image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop',
+                brand: 'COS',
+                name: 'Premium Pamuk Gömlek',
+                old_price: 650,
+                new_price: 455,
+                discount: 30,
+                category: 'erkek'
+            },
+            {
+                id: 3,
+                image: 'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&h=500&fit=crop',
+                brand: 'MASSIMO DUTTI',
+                name: 'İpek Bluz',
+                old_price: 750,
+                new_price: 600,
+                discount: 20,
+                category: 'kadın'
+            },
+            {
+                id: 4,
+                image: 'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=400&h=500&fit=crop',
+                brand: 'UNIQLO',
+                name: 'Slim Fit Pantolon',
+                old_price: 450,
+                new_price: 382,
+                discount: 15,
+                category: 'erkek'
+            },
+            {
+                id: 5,
+                image: 'https://images.unsplash.com/photo-1495385794356-15371f348c31?w=400&h=500&fit=crop',
+                brand: 'H&M',
+                name: 'Blazer Ceket',
+                old_price: 1200,
+                new_price: 720,
+                discount: 40,
+                category: 'kadın'
+            },
+            {
+                id: 6,
+                image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop',
+                brand: 'TOMMY HILFIGER',
+                name: 'Spor Ceket',
+                old_price: 1800,
+                new_price: 1170,
+                discount: 35,
+                category: 'erkek'
+            },
+            {
+                id: 7,
+                image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=500&fit=crop',
+                brand: 'MANGO',
+                name: 'Yüksek Bel Pantolon',
+                old_price: 550,
+                new_price: 412,
+                discount: 25,
+                category: 'kadın'
+            },
+            {
+                id: 8,
+                image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop',
+                brand: 'NIKE',
+                name: 'Oversize Sweatshirt',
+                old_price: 400,
+                new_price: 320,
+                discount: 20,
+                category: 'erkek'
+            }
+        ];
+
+        let currentCategory = 'all';
+        let currentSubcategory = null;
+
+        // Sayfa yüklendikinde çalışacak
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProducts();
+            setupEventListeners();
+            document.body.classList.add('loaded');
+        });
+
+        // Ürünleri render et
+        function renderProducts(category = 'all', subcategory = null) {
+            const grid = document.getElementById('products-grid');
+            let filteredProducts = products;
+
+            if (category !== 'all') {
+                filteredProducts = products.filter(product => product.category === category);
+            }
+
+            if (filteredProducts.length === 0) {
+                grid.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;">
+                        <h3>Bu kategoride henüz ürün bulunmuyor.</h3>
+                        <p>Yakında yeni ürünler eklenecek!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = filteredProducts.map(product => `
+                <div class="product-card" data-category="${product.category}">
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}" loading="lazy">
+                        <div class="discount-badge">%${product.discount}</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="brand">${product.brand}</div>
+                        <h3 class="product-name">${product.name}</h3>
+                        <div class="price">
+                            <span class="old-price">₺${product.old_price.toLocaleString('tr-TR')}</span>
+                            <span class="new-price">₺${product.new_price.toLocaleString('tr-TR')}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Ürün kartlarına click event ekle
+            document.querySelectorAll('.product-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const productName = this.querySelector('.product-name').textContent;
+                    showNotification(`${productName} ürünü seçildi!`, 'info');
+                    
+                    // Click animasyonu
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                });
+            });
+        }
+
+        // Event listener'ları ayarla
+        function setupEventListeners() {
+            // Filter pills
+            document.querySelectorAll('.filter-pill').forEach(pill => {
+                pill.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    currentCategory = this.dataset.category;
+                    updatePageTitle(currentCategory);
+                    renderProducts(currentCategory);
+                    updateNavLinks(currentCategory);
+                });
+            });
+
+            // Dropdown functionality
+            function closeDropdown(button) {
+                const dropdown = button.closest('.dropdown-content');
+                dropdown.classList.remove('show');
+            }
+
+            window.closeDropdown = closeDropdown;
+
+            // Navigation links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    if (this.dataset.category) {
+                        currentCategory = this.dataset.category;
+                        updatePageTitle(currentCategory);
+                        renderProducts(currentCategory);
+                        updateNavLinks(currentCategory);
+                        updateFilterPills(currentCategory);
+                    }
+                });
+            });
+
+            // Subcategory links
+            document.querySelectorAll('[data-subcategory]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const subcategory = this.dataset.subcategory;
+                    const category = this.closest('.dropdown').querySelector('.nav-link').dataset.category;
+                    
+                    currentCategory = category;
+                    currentSubcategory = subcategory;
+                    
+                    updatePageTitle(category, subcategory);
+                    renderProducts(category, subcategory);
+                    updateNavLinks(category);
+                    updateFilterPills(category);
+                    
+                    // Close dropdown
+                    this.closest('.dropdown-content').classList.remove('show');
+                    
+                    showNotification(`${subcategory} kategorisi seçildi!`, 'success');
+                });
+            });
+
+            // Mobile dropdown handling
+            const dropdowns = document.querySelectorAll('.dropdown');
+            
+            dropdowns.forEach(dropdown => {
+                const link = dropdown.querySelector('.nav-link');
+                const content = dropdown.querySelector('.dropdown-content');
+                
+                // Mobile click handling
+                if (window.innerWidth <= 768) {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        content.classList.toggle('show');
+                    });
+                }
+                
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!dropdown.contains(e.target)) {
+                        content.classList.remove('show');
+                    }
+                });
+            });
+
+            // Search functionality
+            document.querySelector('.search-btn').addEventListener('click', function() {
+                const searchTerm = prompt('Arama yapmak istediğiniz ürünü yazın:');
+                if (searchTerm) {
+                    showNotification(`"${searchTerm}" için arama yapılıyor...`, 'info');
+                    // Burada gerçek arama işlemi yapılabilir
+                }
+            });
+            
+            // Cart functionality
+            document.querySelector('.cart-btn').addEventListener('click', function() {
+                showNotification('Sepet özelliği yakında eklenecek!', 'info');
+            });
+        }
+
+        // Sayfa başlığını güncelle
+        function updatePageTitle(category, subcategory = null) {
+            const title = document.getElementById('page-title');
+            const subtitle = document.getElementById('page-subtitle');
+            
+            if (category === 'all') {
+                title.textContent = 'En Yeniler';
+                subtitle.textContent = 'Bu sezonun en trend parçaları';
+            } else {
+                const categoryName = category.charAt(0).toUpperCase() + category.slice(1);
+                title.textContent = `${categoryName} Koleksiyonu`;
+                subtitle.textContent = subcategory ? 
+                    `${subcategory} - Bu sezonun en trend parçaları` : 
+                    'Bu sezonun en trend parçaları';
+            }
+        }
+
+        // Navigasyon linklerini güncelle
+        function updateNavLinks(category) {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.dataset.category === category) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Filter pill'leri güncelle
+        function updateFilterPills(category) {
+            document.querySelectorAll('.filter-pill').forEach(pill => {
+                pill.classList.remove('active');
+                if (pill.dataset.category === category) {
+                    pill.classList.add('active');
+                }
+            });
+        }
+
+        // Notification göster
+        function showNotification(message, type = 'info') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = `notification ${type} show`;
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // Responsive menu handling
+        window.addEventListener('resize', function() {
+            const dropdowns = document.querySelectorAll('.dropdown-content');
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove('show');
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

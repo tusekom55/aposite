@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Butik Moda - En Yeniler</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Tasarım Seçici -->
+    <div class="design-selector">
+        <button class="design-btn active" data-design="1">Tasarım 1</button>
+        <button class="design-btn" data-design="2">Tasarım 2</button>
+        <button class="design-btn" data-design="3">Tasarım 3</button>
+        <button class="design-btn" data-design="4">Tasarım 4</button>
+        <button class="design-btn" data-design="5">Tasarım 5</button>
+    </div>
+
+    <!-- Tasarım 1: Minimal Elegance -->
+    <div class="design design-1 active">
+        <header class="header">
+            <div class="container">
+                <div class="logo">
+                    <h1>ELEGANCE</h1>
+                    <span>Butik Moda</span>
+                </div>
+                <nav class="nav">
+                    <a href="#" class="nav-link active">En Yeniler</a>
+                    <a href="#" class="nav-link">Kadın</a>
+                    <a href="#" class="nav-link">Erkek</a>
+                    <a href="#" class="nav-link">Koleksiyon</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <button class="cart-btn"><i class="fas fa-shopping-bag"></i></button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="container">
+                <div class="page-header">
+                    <h2>En Yeniler</h2>
+                    <p>Bu sezonun en trend parçaları</p>
+                </div>
+
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=500&fit=crop" alt="Kadın Elbise">
+                            <div class="discount-badge">%25</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">ZARA</div>
+                            <h3 class="product-name">Çiçekli Yaz Elbisesi</h3>
+                            <div class="price">
+                                <span class="old-price">₺899</span>
+                                <span class="new-price">₺674</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="Erkek Gömlek">
+                            <div class="discount-badge">%30</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">COS</div>
+                            <h3 class="product-name">Premium Pamuk Gömlek</h3>
+                            <div class="price">
+                                <span class="old-price">₺650</span>
+                                <span class="new-price">₺455</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&h=500&fit=crop" alt="Kadın Bluz">
+                            <div class="discount-badge">%20</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">MASSIMO DUTTI</div>
+                            <h3 class="product-name">İpek Bluz</h3>
+                            <div class="price">
+                                <span class="old-price">₺750</span>
+                                <span class="new-price">₺600</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=400&h=500&fit=crop" alt="Erkek Pantolon">
+                            <div class="discount-badge">%15</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">UNIQLO</div>
+                            <h3 class="product-name">Slim Fit Pantolon</h3>
+                            <div class="price">
+                                <span class="old-price">₺450</span>
+                                <span class="new-price">₺382</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1495385794356-15371f348c31?w=400&h=500&fit=crop" alt="Kadın Ceket">
+                            <div class="discount-badge">%40</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">H&M</div>
+                            <h3 class="product-name">Blazer Ceket</h3>
+                            <div class="price">
+                                <span class="old-price">₺1200</span>
+                                <span class="new-price">₺720</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop" alt="Erkek Ceket">
+                            <div class="discount-badge">%35</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">TOMMY HILFIGER</div>
+                            <h3 class="product-name">Spor Ceket</h3>
+                            <div class="price">
+                                <span class="old-price">₺1800</span>
+                                <span class="new-price">₺1170</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=500&fit=crop" alt="Kadın Pantolon">
+                            <div class="discount-badge">%25</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">MANGO</div>
+                            <h3 class="product-name">Yüksek Bel Pantolon</h3>
+                            <div class="price">
+                                <span class="old-price">₺550</span>
+                                <span class="new-price">₺412</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="Erkek Sweatshirt">
+                            <div class="discount-badge">%20</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">NIKE</div>
+                            <h3 class="product-name">Oversize Sweatshirt</h3>
+                            <div class="price">
+                                <span class="old-price">₺400</span>
+                                <span class="new-price">₺320</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="footer-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Güvenli Alışveriş</h4>
+                        <p>SSL sertifikası ile korunan ödeme</p>
+                    </div>
+                    <div class="footer-section">
+                        <div class="footer-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h4>Hızlı Teslimat</h4>
+                        <p>24 saat içinde kargoda</p>
+                    </div>
+                    <div class="footer-section">
+                        <div class="footer-icon">
+                            <i class="fas fa-undo"></i>
+                        </div>
+                        <h4>Kolay İade</h4>
+                        <p>30 gün içinde ücretsiz iade</p>
+                    </div>
+                    <div class="footer-section">
+                        <div class="footer-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>Müşteri Memnuniyeti</h4>
+                        <p>%99 memnuniyet oranı</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Tasarım 2: Modern Luxury -->
+    <div class="design design-2">
+        <header class="header">
+            <div class="container">
+                <div class="logo">
+                    <h1>LUXE</h1>
+                    <span>Premium Butik</span>
+                </div>
+                <nav class="nav">
+                    <a href="#" class="nav-link active">En Yeniler</a>
+                    <a href="#" class="nav-link">Kadın</a>
+                    <a href="#" class="nav-link">Erkek</a>
+                    <a href="#" class="nav-link">Koleksiyon</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <button class="cart-btn"><i class="fas fa-shopping-bag"></i></button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="container">
+                <div class="page-header">
+                    <h2>En Yeniler</h2>
+                    <p>Bu sezonun en trend parçaları</p>
+                </div>
+
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=500&fit=crop" alt="Kadın Elbise">
+                            <div class="discount-badge">%25</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">ZARA</div>
+                            <h3 class="product-name">Çiçekli Yaz Elbisesi</h3>
+                            <div class="price">
+                                <span class="old-price">₺899</span>
+                                <span class="new-price">₺674</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="Erkek Gömlek">
+                            <div class="discount-badge">%30</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">COS</div>
+                            <h3 class="product-name">Premium Pamuk Gömlek</h3>
+                            <div class="price">
+                                <span class="old-price">₺650</span>
+                                <span class="new-price">₺455</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&h=500&fit=crop" alt="Kadın Bluz">
+                            <div class="discount-badge">%20</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">MASSIMO DUTTI</div>
+                            <h3 class="product-name">İpek Bluz</h3>
+                            <div class="price">
+                                <span class="old-price">₺750</span>
+                                <span class="new-price">₺600</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=400&h=500&fit=crop" alt="Erkek Pantolon">
+                            <div class="discount-badge">%15</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">UNIQLO</div>
+                            <h3 class="product-name">Slim Fit Pantolon</h3>
+                            <div class="price">
+                                <span class="old-price">₺450</span>
+                                <span class="new-price">₺382</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1495385794356-15371f348c31?w=400&h=500&fit=crop" alt="Kadın Ceket">
+                            <div class="discount-badge">%40</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">H&M</div>
+                            <h3 class="product-name">Blazer Ceket</h3>
+                            <div class="price">
+                                <span class="old-price">₺1200</span>
+                                <span class="new-price">₺720</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop" alt="Erkek Ceket">
+                            <div class="discount-badge">%35</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">TOMMY HILFIGER</div>
+                            <h3 class="product-name">Spor Ceket</h3>
+                            <div class="price">
+                                <span class="old-price">₺1800</span>
+                                <span class="new-price">₺1170</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=500&fit=crop" alt="Kadın Pantolon">
+                            <div class="discount-badge">%25</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">MANGO</div>
+                            <h3 class="product-name">Yüksek Bel Pantolon</h3>
+                            <div class="price">
+                                <span class="old-price">₺550</span>
+                                <span class="new-price">₺412</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="Erkek Sweatshirt">
+                            <div class="discount-badge">%20</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">NIKE</div>
+                            <h3 class="product-name">Oversize Sweatshirt</h3>
+                            <div class="price">
+                                <span class="old-price">₺400</span>
+                                <span class="new-price">₺320</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="footer-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Güvenli Alışveriş</h4>
+                        <p>SSL sertifikası ile korunan ödeme</p>
+                    </div>
+                    <div class="footer-section">
+                        <div class="footer-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h4>Hızlı Teslimat</h4>
+                        <p>24 saat içinde kargoda</p>
+                    </div>
+                    <div class="footer-section">
+                        <div class="footer-icon">
+                            <i class="fas fa-undo"></i>
+                        </div>
+                        <h4>Kolay İade</h4>
+                        <p>30 gün içinde ücretsiz iade</p>
+                    </div>
+                    <div class="footer-section">
+                        <div class="footer-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>Müşteri Memnuniyeti</h4>
+                        <p>%99 memnuniyet oranı</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Tasarım 3: Scandinavian Minimal -->
+    <div class="design design-3">
+        <header class="header">
+            <div class="container">
+                <div class="logo">
+                    <h1>NORDIC</h1>
+                    <span>Minimal Butik</span>
+                </div>
+                <nav class="nav">
+                    <a href="#" class="nav-link active">En Yeniler</a>
+                    <a href="#" class="nav-link">Kadın</a>
+                    <a href="#" class="nav-link">Erkek</a>
+                    <a href="#" class="nav-link">Koleksiyon</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <button class="cart-btn"><i class="fas fa-shopping-bag"></i></button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="container">
+                <div class="page-header">
+                    <h2>En Yeniler</h2>
+                    <p>Bu sezonun en trend parçaları</p>
+                </div>
+
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=500&fit=crop" alt="Kadın Elbise">
+                            <div class="discount-badge">%25</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">ZARA</div>
+                            <h3 class="product-name">Çiçekli Yaz Elbisesi</h3>
+                            <div class="price">
+                                <span class="old-price">₺899</span>
+                                <span class="new-price">₺674</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="Erkek Gömlek">
+                            <div class="discount-badge">%30</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">COS</div>
+                            <h3 class="product-name">Premium Pamuk Gömlek</h3>
+                            <div class="price">
+                                <span class="old-price">₺650</span>
+                                <span class="new-price">₺455</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&h=500&fit=crop" alt="Kadın Bluz">
+                            <div class="discount-badge">%20</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">MASSIMO DUTTI</div>
+                            <h3 class="product-name">İpek Bluz</h3>
+                            <div class="price">
+                                <span class="old-price">₺750</span>
+                                <span class="new-price">₺600</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=400&h=500&fit=crop" alt="Erkek Pantolon">
+                            <div class="discount-badge">%15</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">UNIQLO</div>
+                            <h3 class="product-name">Slim Fit Pantolon</h3>
+                            <div class="price">
+                                <span class="old-price">₺450</span>
+                                <span class="new-price">₺382</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1495385794356-15371f348c31?w=400&h=500&fit=crop" alt="Kadın Ceket">
+                            <div class="discount-badge">%40</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">H&M</div>
+                            <h3 class="product-name">Blazer Ceket</h3>
+                            <div class="price">
+                                <span class="old-price">₺1200</span>
+                                <span class="new-price">₺720</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop" alt="Erkek Ceket">
+                            <div class="discount-badge">%35</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">TOMMY HILFIGER</div>
+                            <h3 class="product-name">Spor Ceket</h3>
+                            <div class="price">
+                                <span class="old-price">₺1800</span>
+                                <span class="new-price">₺1170</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=500&fit=crop" alt="Kadın Pantolon">
+                            <div class="discount-badge">%25</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">MANGO</div>
+                            <h3 class="product-name">Yüksek Bel Pantolon</h3>
+                            <div class="price">
+                                <span class="old-price">₺550</span>
+                                <span class="new-price">₺412</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="Erkek Sweatshirt">
+                            <div class="discount-badge">%20</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">NIKE</div>
+                            <h3 class="product-name">Oversize Sweatshirt</h3>
+                            <div class="price">
+                                <span class="old-price">₺400</span>
+                                <span class="new-price">₺320</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="footer-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Güvenli Alışveriş</h4>
+                        <p>SSL sertifikası ile korunan ödeme</p>
+                    </div>
+                    <div class="footer-section">
+                        <div class="footer-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h4>Hızlı Teslimat</h4>
+                        <p>24 saat içinde kargoda</p>
+                    </div>
+                    <div class="footer-section">
+                        <div class="footer-icon">
+                            <i class="fas fa-undo"></i>
+                        </div>
+                        <h4>Kolay İade</h4>
+                        <p>30 gün içinde ücretsiz iade</p>
+                    </div>
+                    <div class="footer-section">
+                        <div class="footer-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>Müşteri Memnuniyeti</h4>
+                        <p>%99 memnuniyet oranı</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Tasarım 4: Artisan Craft -->
+    <div class="design design-4">
+        <header class="header">
+            <div class="container">
+                <div class="logo">
+                    <h1>ARTISAN</h1>
+                    <span>El İşi Butik</span>
+                </div>
+                <nav class="nav">
+                    <a href="#" class="nav-link active">En Yeniler</a>
+                    <a href="#" class="nav-link">Kadın</a>
+                    <a href="#" class="nav-link">Erkek</a>
+                    <a href="#" class="nav-link">Koleksiyon</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <button class="cart-btn"><i class="fas fa-shopping-bag"></i></button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="container">
+                <div class="page-header">
+                    <h2>En Yeniler</h2>
+                    <p>Bu sezonun en trend parçaları</p>
+                </div>
+
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=500&fit=crop" alt="Kadın Elbise">
+                            <div class="discount-badge">%25</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">ZARA</div>
+                            <h3 class="product-name">Çiçekli Yaz Elbisesi</h3>
+                            <div class="price">
+                                <span class="old-price">₺899</span>
+                                <span class="new-price">₺674</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="Erkek Gömlek">
+                            <div class="discount-badge">%30</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">COS</div>
+                            <h3 class="product-name">Premium Pamuk Gömlek</h3>
+                            <div class="price">
+                                <span class="old-price">₺650</span>
+                                <span class="new-price">₺455</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&h=500&fit=crop" alt="Kadın Bluz">
+                            <div class="discount-badge">%20</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">MASSIMO DUTTI</div>
+                            <h3 class="product-name">İpek Bluz</h3>
+                            <div class="price">
+                                <span class="old-price">₺750</span>
+                                <span class="new-price">₺600</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=400&h=500&fit=crop" alt="Erkek Pantolon">
+                            <div class="discount-badge">%15</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">UNIQLO</div>
+                            <h3 class="product-name">Slim Fit Pantolon</h3>
+                            <div class="price">
+                                <span class="old-price">₺450</span>
+                                <span class="new-price">₺382</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1495385794356-15371f348c31?w=400&h=500&fit=crop" alt="Kadın Ceket">
+                            <div class="discount-badge">%40</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">H&M</div>
+                            <h3 class="product-name">Blazer Ceket</h3>
+                            <div class="price">
+                                <span class="old-price">₺1200</span>
+                                <span class="new-price">₺720</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop" alt="Erkek Ceket">
+                            <div class="discount-badge">%35</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">TOMMY HILFIGER</div>
+                            <h3 class="product-name">Spor Ceket</h3>
+                            <div class="price">
+                                <span class="old-price">₺1800</span>
+                                <span class="new-price">₺1170</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=500&fit=crop" alt="Kadın Pantolon">
+                            <div class="discount-badge">%25</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">MANGO</div>
+                            <h3 class="product-name">Yüksek Bel Pantolon</h3>
+                            <div class="price">
+                                <span class="old-price">₺550</span>
+                                <span class="new-price">₺412</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="Erkek Sweatshirt">
+                            <div class="discount-badge">%20</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">NIKE</div>
+                            <h3 class="product-name">Oversize Sweatshirt</h3>
+                            <div class="price">
+                                <span class="old-price">₺400</span>
+                                <span class="new-price">₺320</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="footer-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Güvenli Alışveriş</h4>
+                        <p>SSL sertifikası ile korunan ödeme</p>
+                    </div>
+                    <div class="footer-section">
+                        <div class="footer-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h4>Hızlı Teslimat</h4>
+                        <p>24 saat içinde kargoda</p>
+                    </div>
+                    <div class="footer-section">
+                        <div class="footer-icon">
+                            <i class="fas fa-undo"></i>
+                        </div>
+                        <h4>Kolay İade</h4>
+                        <p>30 gün içinde ücretsiz iade</p>
+                    </div>
+                    <div class="footer-section">
+                        <div class="footer-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>Müşteri Memnuniyeti</h4>
+                        <p>%99 memnuniyet oranı</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Tasarım 5: Urban Chic -->
+    <div class="design design-5">
+        <header class="header">
+            <div class="container">
+                <div class="logo">
+                    <h1>URBAN</h1>
+                    <span>Şehir Butik</span>
+                </div>
+                <nav class="nav">
+                    <a href="#" class="nav-link active">En Yeniler</a>
+                    <a href="#" class="nav-link">Kadın</a>
+                    <a href="#" class="nav-link">Erkek</a>
+                    <a href="#" class="nav-link">Koleksiyon</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <button class="cart-btn"><i class="fas fa-shopping-bag"></i></button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="container">
+                <div class="page-header">
+                    <h2>En Yeniler</h2>
+                    <p>Bu sezonun en trend parçaları</p>
+                </div>
+
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=500&fit=crop" alt="Kadın Elbise">
+                            <div class="discount-badge">%25</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">ZARA</div>
+                            <h3 class="product-name">Çiçekli Yaz Elbisesi</h3>
+                            <div class="price">
+                                <span class="old-price">₺899</span>
+                                <span class="new-price">₺674</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="Erkek Gömlek">
+                            <div class="discount-badge">%30</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">COS</div>
+                            <h3 class="product-name">Premium Pamuk Gömlek</h3>
+                            <div class="price">
+                                <span class="old-price">₺650</span>
+                                <span class="new-price">₺455</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&h=500&fit=crop" alt="Kadın Bluz">
+                            <div class="discount-badge">%20</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">MASSIMO DUTTI</div>
+                            <h3 class="product-name">İpek Bluz</h3>
+                            <div class="price">
+                                <span class="old-price">₺750</span>
+                                <span class="new-price">₺600</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=400&h=500&fit=crop" alt="Erkek Pantolon">
+                            <div class="discount-badge">%15</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">UNIQLO</div>
+                            <h3 class="product-name">Slim Fit Pantolon</h3>
+                            <div class="price">
+                                <span class="old-price">₺450</span>
+                                <span class="new-price">₺382</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1495385794356-15371f348c31?w=400&h=500&fit=crop" alt="Kadın Ceket">
+                            <div class="discount-badge">%40</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">H&M</div>
+                            <h3 class="product-name">Blazer Ceket</h3>
+                            <div class="price">
+                                <span class="old-price">₺1200</span>
+                                <span class="new-price">₺720</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop" alt="Erkek Ceket">
+                            <div class="discount-badge">%35</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">TOMMY HILFIGER</div>
+                            <h3 class="product-name">Spor Ceket</h3>
+                            <div class="price">
+                                <span class="old-price">₺1800</span>
+                                <span class="new-price">₺1170</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=500&fit=crop" alt="Kadın Pantolon">
+                            <div class="discount-badge">%25</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">MANGO</div>
+                            <h3 class="product-name">Yüksek Bel Pantolon</h3>
+                            <div class="price">
+                                <span class="old-price">₺550</span>
+                                <span class="new-price">₺412</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="Erkek Sweatshirt">
+                            <div class="discount-badge">%20</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="brand">NIKE</div>
+                            <h3 class="product-name">Oversize Sweatshirt</h3>
+                            <div class="price">
+                                <span class="old-price">₺400</span>
+                                <span class="new-price">₺320</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="footer-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Güvenli Alışveriş</h4>
+                        <p>SSL sertifikası ile korunan ödeme</p>
+                    </div>
+                    <div class="footer-section">
+                        <div class="footer-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h4>Hızlı Teslimat</h4>
+                        <p>24 saat içinde kargoda</p>
+                    </div>
+                    <div class="footer-section">
+                        <div class="footer-icon">
+                            <i class="fas fa-undo"></i>
+                        </div>
+                        <h4>Kolay İade</h4>
+                        <p>30 gün içinde ücretsiz iade</p>
+                    </div>
+                    <div class="footer-section">
+                        <div class="footer-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>Müşteri Memnuniyeti</h4>
+                        <p>%99 memnuniyet oranı</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
