@@ -465,12 +465,15 @@
             color: var(--color-neutral-800);
         }
 
-        /* Modern Product Grid - Compact & Mobile Optimized */
+        /* Modern Product Grid - 2 Column Layout */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: var(--space-sm);
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-md);
             margin-bottom: var(--space-3xl);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .product-card {
@@ -481,8 +484,7 @@
             transition: var(--transition-base);
             cursor: pointer;
             position: relative;
-            max-width: 240px;
-            margin: 0 auto;
+            width: 100%;
         }
 
         .product-card:hover {
