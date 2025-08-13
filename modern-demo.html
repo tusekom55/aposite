@@ -1969,11 +1969,9 @@
 
         function handleProductClick() {
             const productId = parseInt(this.dataset.productId);
-            const product = products.find(p => p.id === productId);
             
-            if (product) {
-                openProductModal(product);
-            }
+            // Navigate to product detail page
+            window.location.href = `product-detail.html?id=${productId}`;
             
             // Modern click animation
             this.style.transform = 'scale(0.98)';
