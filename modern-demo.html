@@ -591,6 +591,515 @@
             line-height: 1;
         }
 
+        /* Modern Product Detail Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-base);
+            padding: var(--space-md);
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .product-modal {
+            background: var(--color-primary);
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-2xl);
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: scale(0.8) translateY(40px);
+            transition: var(--transition-bounce);
+            border: 1px solid var(--color-neutral-200);
+        }
+
+        .modal-overlay.show .product-modal {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-lg);
+            border-bottom: 1px solid var(--color-neutral-200);
+        }
+
+        .modal-close {
+            width: 2.5rem;
+            height: 2.5rem;
+            border: none;
+            background: var(--color-neutral-100);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-neutral-600);
+            transition: var(--transition-base);
+        }
+
+        .modal-close:hover {
+            background: var(--color-danger);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .modal-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-2xl);
+            padding: var(--space-lg);
+        }
+
+        /* Product Images Section */
+        .product-images {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .main-image {
+            aspect-ratio: 4 / 5;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: 1px solid var(--color-neutral-200);
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-base);
+        }
+
+        .thumbnail-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: var(--space-xs);
+        }
+
+        .thumbnail {
+            aspect-ratio: 4 / 5;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: var(--transition-base);
+        }
+
+        .thumbnail.active {
+            border-color: var(--color-accent);
+        }
+
+        .thumbnail:hover {
+            border-color: var(--color-neutral-400);
+            transform: scale(1.05);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Product Details Section */
+        .product-details {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+        }
+
+        .product-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: var(--font-size-3xl);
+            font-weight: 600;
+            color: var(--color-neutral-900);
+            margin-bottom: var(--space-xs);
+        }
+
+        .product-brand-modal {
+            font-size: var(--font-size-sm);
+            color: var(--color-neutral-500);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+        }
+
+        .product-sku {
+            font-size: var(--font-size-xs);
+            color: var(--color-neutral-400);
+            font-family: 'Monaco', monospace;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            margin-bottom: var(--space-md);
+        }
+
+        .stars {
+            display: flex;
+            gap: var(--space-3xs);
+        }
+
+        .star {
+            color: var(--color-warning);
+            font-size: var(--font-size-sm);
+        }
+
+        .star.empty {
+            color: var(--color-neutral-300);
+        }
+
+        .rating-text {
+            font-size: var(--font-size-sm);
+            color: var(--color-neutral-600);
+        }
+
+        .product-price-modal {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .price-current {
+            font-size: var(--font-size-4xl);
+            font-weight: 700;
+            color: var(--color-accent);
+        }
+
+        .price-original {
+            font-size: var(--font-size-xl);
+            color: var(--color-neutral-400);
+            text-decoration: line-through;
+        }
+
+        .discount-percentage {
+            background: var(--color-warning);
+            color: white;
+            padding: var(--space-2xs) var(--space-xs);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-xs);
+            font-weight: 600;
+        }
+
+        .product-description {
+            color: var(--color-neutral-700);
+            line-height: 1.7;
+            margin-bottom: var(--space-lg);
+        }
+
+        .product-features {
+            margin-bottom: var(--space-lg);
+        }
+
+        .features-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-xs);
+            margin-top: var(--space-sm);
+        }
+
+        .feature-tag {
+            background: var(--color-neutral-100);
+            color: var(--color-neutral-700);
+            padding: var(--space-2xs) var(--space-sm);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-xs);
+            font-weight: 500;
+        }
+
+        /* Color Selection */
+        .color-selection {
+            margin-bottom: var(--space-lg);
+        }
+
+        .section-title {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            color: var(--color-neutral-900);
+            margin-bottom: var(--space-sm);
+        }
+
+        .color-options {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .color-option {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            cursor: pointer;
+            transition: var(--transition-base);
+            position: relative;
+        }
+
+        .color-option.active {
+            border-color: var(--color-accent);
+            transform: scale(1.1);
+        }
+
+        .color-option:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Size Selection */
+        .size-selection {
+            margin-bottom: var(--space-lg);
+        }
+
+        .size-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+            gap: var(--space-xs);
+        }
+
+        .size-option {
+            padding: var(--space-sm);
+            border: 2px solid var(--color-neutral-300);
+            border-radius: var(--radius-md);
+            background: var(--color-primary);
+            cursor: pointer;
+            text-align: center;
+            font-weight: 600;
+            transition: var(--transition-base);
+        }
+
+        .size-option.active {
+            border-color: var(--color-accent);
+            background: var(--color-accent);
+            color: white;
+        }
+
+        .size-option:hover:not(.active):not(.unavailable) {
+            border-color: var(--color-neutral-500);
+            background: var(--color-neutral-100);
+        }
+
+        .size-option.unavailable {
+            background: var(--color-neutral-100);
+            color: var(--color-neutral-400);
+            cursor: not-allowed;
+            position: relative;
+        }
+
+        .size-option.unavailable::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: var(--color-neutral-400);
+            transform: translateY(-50%) rotate(-45deg);
+        }
+
+        /* Quantity Selection */
+        .quantity-selection {
+            margin-bottom: var(--space-lg);
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            width: fit-content;
+            border: 2px solid var(--color-neutral-300);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .qty-btn {
+            width: 3rem;
+            height: 3rem;
+            border: none;
+            background: var(--color-neutral-100);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-neutral-600);
+            transition: var(--transition-base);
+        }
+
+        .qty-btn:hover {
+            background: var(--color-accent);
+            color: white;
+        }
+
+        .qty-input {
+            width: 4rem;
+            height: 3rem;
+            border: none;
+            background: var(--color-primary);
+            text-align: center;
+            font-weight: 600;
+            font-size: var(--font-size-lg);
+        }
+
+        /* Stock Info */
+        .stock-info {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
+            padding: var(--space-sm);
+            background: var(--color-success);
+            color: white;
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+        }
+
+        .stock-info.low-stock {
+            background: var(--color-warning);
+        }
+
+        .stock-info.out-of-stock {
+            background: var(--color-danger);
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            flex: 1;
+            padding: var(--space-md) var(--space-lg);
+            border: none;
+            border-radius: var(--radius-xl);
+            font-weight: 600;
+            font-size: var(--font-size-base);
+            cursor: pointer;
+            transition: var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--color-accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--color-danger);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: var(--color-neutral-100);
+            color: var(--color-neutral-700);
+            border: 2px solid var(--color-neutral-300);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-neutral-900);
+            color: white;
+            border-color: var(--color-neutral-900);
+        }
+
+        .wishlist-btn {
+            width: 3rem;
+            height: 3rem;
+            border: 2px solid var(--color-neutral-300);
+            background: var(--color-primary);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-neutral-600);
+            transition: var(--transition-base);
+        }
+
+        .wishlist-btn:hover,
+        .wishlist-btn.active {
+            border-color: var(--color-accent);
+            background: var(--color-accent);
+            color: white;
+        }
+
+        /* Delivery Info */
+        .delivery-info {
+            border: 1px solid var(--color-neutral-200);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            background: var(--color-neutral-50);
+        }
+
+        .delivery-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-xs);
+            font-size: var(--font-size-sm);
+        }
+
+        .delivery-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .delivery-icon {
+            color: var(--color-success);
+            width: 1.2rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .modal-content {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+                padding: var(--space-md);
+            }
+
+            .product-header h1 {
+                font-size: var(--font-size-2xl);
+            }
+
+            .price-current {
+                font-size: var(--font-size-3xl);
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .size-options {
+                grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+            }
+
+            .thumbnail-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+            }
+        }
+
         /* Modern Footer */
         .footer {
             background: var(--color-neutral-900);
@@ -988,6 +1497,115 @@
         </section>
     </main>
 
+    <!-- Product Detail Modal -->
+    <div id="product-modal" class="modal-overlay">
+        <div class="product-modal">
+            <div class="modal-header">
+                <h2>Ürün Detayı</h2>
+                <button class="modal-close" id="modal-close" aria-label="Modalı kapat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-content">
+                <div class="product-images">
+                    <div class="main-image">
+                        <img id="main-product-image" src="" alt="" />
+                    </div>
+                    <div class="thumbnail-gallery" id="thumbnail-gallery">
+                        <!-- Thumbnails will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="product-details">
+                    <div class="product-header">
+                        <div class="product-brand-modal" id="modal-brand"></div>
+                        <h1 id="modal-product-name"></h1>
+                        <div class="product-sku" id="modal-sku"></div>
+                    </div>
+
+                    <div class="product-rating">
+                        <div class="stars" id="modal-stars"></div>
+                        <span class="rating-text" id="modal-rating-text"></span>
+                    </div>
+
+                    <div class="product-price-modal">
+                        <span class="price-current" id="modal-current-price"></span>
+                        <span class="price-original" id="modal-original-price"></span>
+                        <span class="discount-percentage" id="modal-discount"></span>
+                    </div>
+
+                    <div class="product-description" id="modal-description"></div>
+
+                    <div class="product-features">
+                        <h3 class="section-title">Özellikler</h3>
+                        <div class="features-list" id="modal-features"></div>
+                    </div>
+
+                    <div class="color-selection">
+                        <h3 class="section-title">Renk Seçimi</h3>
+                        <div class="color-options" id="modal-colors"></div>
+                    </div>
+
+                    <div class="size-selection">
+                        <h3 class="section-title">Beden Seçimi</h3>
+                        <div class="size-options" id="modal-sizes"></div>
+                    </div>
+
+                    <div class="quantity-selection">
+                        <h3 class="section-title">Adet</h3>
+                        <div class="quantity-controls">
+                            <button class="qty-btn" id="qty-decrease">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <input type="number" class="qty-input" id="qty-input" value="1" min="1" max="10">
+                            <button class="qty-btn" id="qty-increase">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="stock-info" id="modal-stock-info">
+                        <i class="fas fa-check-circle"></i>
+                        <span id="stock-text">Stokta var</span>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn-primary" id="add-to-cart-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            Sepete Ekle
+                        </button>
+                        <button class="btn-secondary" id="buy-now-btn">
+                            <i class="fas fa-bolt"></i>
+                            Hemen Al
+                        </button>
+                        <button class="wishlist-btn" id="wishlist-btn">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+
+                    <div class="delivery-info">
+                        <div class="delivery-item">
+                            <i class="fas fa-truck delivery-icon"></i>
+                            <span>Ücretsiz kargo (150₺ ve üzeri siparişlerde)</span>
+                        </div>
+                        <div class="delivery-item">
+                            <i class="fas fa-clock delivery-icon"></i>
+                            <span>1-3 iş günü içinde teslimat</span>
+                        </div>
+                        <div class="delivery-item">
+                            <i class="fas fa-undo delivery-icon"></i>
+                            <span>30 gün içinde ücretsiz iade</span>
+                        </div>
+                        <div class="delivery-item">
+                            <i class="fas fa-shield-alt delivery-icon"></i>
+                            <span>1 yıl garanti</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -1024,67 +1642,188 @@
     </footer>
 
     <script>
-        // Modern Product Data
+        // Enhanced Product Data with E-commerce Details
         const products = [
             {
                 id: 1,
-                image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=500&fit=crop',
+                images: [
+                    'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=800&fit=crop',
+                    'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=600&h=800&fit=crop',
+                    'https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&h=800&fit=crop'
+                ],
                 brand: 'ZARA',
                 name: 'Çiçekli Yaz Elbisesi',
                 old_price: 899,
                 new_price: 674,
                 discount: 25,
-                category: 'kadın'
+                category: 'kadın',
+                sku: 'ZR001-FLD-2024',
+                description: 'Yaz sezonunun en trend çiçek desenli elbisesi. %100 pamuk kumaş, rahat kesim ve şık detaylarıyla öne çıkan bu elbise, günlük kullanımdan özel davetlere kadar her durumda tercih edilebilir.',
+                features: ['%100 Pamuk', 'Yıkanabilir', 'Rahat Kesim', 'Çiçek Desen'],
+                colors: [
+                    { name: 'Mavi Çiçekli', code: '#4A90E2', image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=800&fit=crop' },
+                    { name: 'Pembe Çiçekli', code: '#F5A623', image: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=600&h=800&fit=crop' }
+                ],
+                sizes: [
+                    { size: 'XS', stock: 5, available: true },
+                    { size: 'S', stock: 12, available: true },
+                    { size: 'M', stock: 8, available: true },
+                    { size: 'L', stock: 3, available: true },
+                    { size: 'XL', stock: 0, available: false }
+                ],
+                stock: 28,
+                rating: 4.8,
+                reviewCount: 156
             },
             {
                 id: 2,
-                image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop',
+                images: [
+                    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop',
+                    'https://images.unsplash.com/photo-1506629905607-d00650ac5049?w=600&h=800&fit=crop'
+                ],
                 brand: 'COS',
                 name: 'Premium Pamuk Gömlek',
                 old_price: 650,
                 new_price: 455,
                 discount: 30,
-                category: 'erkek'
+                category: 'erkek',
+                sku: 'COS002-SHT-2024',
+                description: 'Modern erkek için tasarlanmış premium pamuk gömlek. Minimal tasarım anlayışı ve kaliteli kumaşıyla iş hayatından sosyal etkinliklere kadar her ortamda kullanılabilir.',
+                features: ['Premium Pamuk', 'Wrinkle-Free', 'Slim Fit', 'İtalyan Yaka'],
+                colors: [
+                    { name: 'Beyaz', code: '#FFFFFF', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop' },
+                    { name: 'Açık Mavi', code: '#87CEEB', image: 'https://images.unsplash.com/photo-1506629905607-d00650ac5049?w=600&h=800&fit=crop' }
+                ],
+                sizes: [
+                    { size: 'S', stock: 7, available: true },
+                    { size: 'M', stock: 15, available: true },
+                    { size: 'L', stock: 10, available: true },
+                    { size: 'XL', stock: 4, available: true },
+                    { size: 'XXL', stock: 2, available: true }
+                ],
+                stock: 38,
+                rating: 4.6,
+                reviewCount: 89
             },
             {
                 id: 3,
-                image: 'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&h=500&fit=crop',
+                images: [
+                    'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=600&h=800&fit=crop',
+                    'https://images.unsplash.com/photo-1445205170230-053b83016050?w=600&h=800&fit=crop'
+                ],
                 brand: 'MASSIMO DUTTI',
                 name: 'İpek Bluz',
                 old_price: 750,
                 new_price: 600,
                 discount: 20,
-                category: 'kadın'
+                category: 'kadın',
+                sku: 'MD003-SLK-2024',
+                description: 'Lüks ipek kumaştan üretilen zarif bluz. Yumuşak dokusu ve şık kesimi ile kadının doğal güzelliğini öne çıkarır. Özel günler için mükemmel tercih.',
+                features: ['%100 İpek', 'Kuru Temizleme', 'Zarif Kesim', 'Fransız Dikiş'],
+                colors: [
+                    { name: 'Krem', code: '#F5F5DC', image: 'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=600&h=800&fit=crop' },
+                    { name: 'Siyah', code: '#000000', image: 'https://images.unsplash.com/photo-1445205170230-053b83016050?w=600&h=800&fit=crop' }
+                ],
+                sizes: [
+                    { size: 'XS', stock: 3, available: true },
+                    { size: 'S', stock: 8, available: true },
+                    { size: 'M', stock: 6, available: true },
+                    { size: 'L', stock: 4, available: true },
+                    { size: 'XL', stock: 1, available: true }
+                ],
+                stock: 22,
+                rating: 4.9,
+                reviewCount: 67
             },
             {
                 id: 4,
-                image: 'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=400&h=500&fit=crop',
+                images: [
+                    'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=600&h=800&fit=crop',
+                    'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=600&h=800&fit=crop'
+                ],
                 brand: 'UNIQLO',
                 name: 'Slim Fit Pantolon',
                 old_price: 450,
                 new_price: 382,
                 discount: 15,
-                category: 'erkek'
+                category: 'erkek',
+                sku: 'UQ004-PNT-2024',
+                description: 'Günlük kulanım için ideal slim fit pantolon. Streç özellikli kumaşı ile hareket özgürlüğü sağlar. Hem casual hem de smart casual kombinlerde kullanılabilir.',
+                features: ['Streç Kumaş', '4-Way Stretch', 'Wrinkle Resistant', 'Modern Fit'],
+                colors: [
+                    { name: 'Lacivert', code: '#000080', image: 'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=600&h=800&fit=crop' },
+                    { name: 'Antrasit', code: '#36454F', image: 'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=600&h=800&fit=crop' }
+                ],
+                sizes: [
+                    { size: '30', stock: 6, available: true },
+                    { size: '32', stock: 12, available: true },
+                    { size: '34', stock: 15, available: true },
+                    { size: '36', stock: 8, available: true },
+                    { size: '38', stock: 3, available: true }
+                ],
+                stock: 44,
+                rating: 4.5,
+                reviewCount: 203
             },
             {
                 id: 5,
-                image: 'https://images.unsplash.com/photo-1495385794356-15371f348c31?w=400&h=500&fit=crop',
+                images: [
+                    'https://images.unsplash.com/photo-1495385794356-15371f348c31?w=600&h=800&fit=crop',
+                    'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&h=800&fit=crop'
+                ],
                 brand: 'H&M',
                 name: 'Blazer Ceket',
                 old_price: 1200,
                 new_price: 720,
                 discount: 40,
-                category: 'kadın'
+                category: 'kadın',
+                sku: 'HM005-BLZ-2024',
+                description: 'Klasik blazer ceketinin modern yorumu. Keskin hatları ve kaliteli kumaşıyla profesyonel görünüm sunar. İş hayatı ve özel davetler için idealdir.',
+                features: ['Polyester Karışım', 'Omuz Vatkaları', 'İç Cep', 'Düğme Detay'],
+                colors: [
+                    { name: 'Siyah', code: '#000000', image: 'https://images.unsplash.com/photo-1495385794356-15371f348c31?w=600&h=800&fit=crop' },
+                    { name: 'Lacivert', code: '#000080', image: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&h=800&fit=crop' }
+                ],
+                sizes: [
+                    { size: 'XS', stock: 2, available: true },
+                    { size: 'S', stock: 5, available: true },
+                    { size: 'M', stock: 8, available: true },
+                    { size: 'L', stock: 3, available: true },
+                    { size: 'XL', stock: 0, available: false }
+                ],
+                stock: 18,
+                rating: 4.7,
+                reviewCount: 124
             },
             {
                 id: 6,
-                image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop',
+                images: [
+                    'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&h=800&fit=crop',
+                    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop'
+                ],
                 brand: 'TOMMY HILFIGER',
                 name: 'Spor Ceket',
                 old_price: 1800,
                 new_price: 1170,
                 discount: 35,
-                category: 'erkek'
+                category: 'erkek',
+                sku: 'TH006-SPT-2024',
+                description: 'Premium spor ceket, yüksek kalite malzeme ve işçilik. Hem günlük hem de resmi ortamlarda kullanılabilir. Tommy Hilfiger\'ın klasik tarzını yansıtır.',
+                features: ['Wool Blend', 'İç Astar', 'Düğme Kapatma', 'Cep Detayları'],
+                colors: [
+                    { name: 'Gri', code: '#808080', image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&h=800&fit=crop' },
+                    { name: 'Siyah', code: '#000000', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop' }
+                ],
+                sizes: [
+                    { size: 'S', stock: 4, available: true },
+                    { size: 'M', stock: 7, available: true },
+                    { size: 'L', stock: 5, available: true },
+                    { size: 'XL', stock: 2, available: true },
+                    { size: 'XXL', stock: 1, available: true }
+                ],
+                stock: 19,
+                rating: 4.8,
+                reviewCount: 95
             }
         ];
 
@@ -1121,9 +1860,9 @@
             }
 
             grid.innerHTML = filteredProducts.map(product => `
-                <article class="product-card" data-category="${product.category}" role="gridcell" tabindex="0">
+                <article class="product-card" data-category="${product.category}" data-product-id="${product.id}" role="gridcell" tabindex="0">
                     <div class="product-image">
-                        <img src="${product.image}" 
+                        <img src="${product.images[0]}" 
                              alt="${product.name} - ${product.brand}" 
                              loading="lazy"
                              width="400"
@@ -1229,14 +1968,307 @@
         }
 
         function handleProductClick() {
-            const productName = this.querySelector('.product-name').textContent;
-            showNotification(`${productName} ürünü seçildi!`, 'info');
+            const productId = parseInt(this.dataset.productId);
+            const product = products.find(p => p.id === productId);
+            
+            if (product) {
+                openProductModal(product);
+            }
             
             // Modern click animation
             this.style.transform = 'scale(0.98)';
             requestAnimationFrame(() => {
                 this.style.transform = '';
             });
+        }
+
+        // Product Modal Functions
+        function openProductModal(product) {
+            const modal = document.getElementById('product-modal');
+            
+            // Populate modal with product data
+            populateProductModal(product);
+            
+            // Show modal
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+            
+            // Set up modal event listeners
+            setupModalEventListeners(product);
+        }
+
+        function closeProductModal() {
+            const modal = document.getElementById('product-modal');
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+            
+            // Clean up event listeners
+            cleanupModalEventListeners();
+        }
+
+        function populateProductModal(product) {
+            // Basic product info
+            document.getElementById('modal-brand').textContent = product.brand;
+            document.getElementById('modal-product-name').textContent = product.name;
+            document.getElementById('modal-sku').textContent = `SKU: ${product.sku}`;
+            document.getElementById('modal-description').textContent = product.description;
+            
+            // Pricing
+            document.getElementById('modal-current-price').textContent = `₺${product.new_price.toLocaleString('tr-TR')}`;
+            document.getElementById('modal-original-price').textContent = `₺${product.old_price.toLocaleString('tr-TR')}`;
+            document.getElementById('modal-discount').textContent = `%${product.discount}`;
+            
+            // Rating
+            populateRating(product.rating, product.reviewCount);
+            
+            // Features
+            populateFeatures(product.features);
+            
+            // Images
+            populateImages(product.images);
+            
+            // Colors
+            populateColors(product.colors);
+            
+            // Sizes
+            populateSizes(product.sizes);
+            
+            // Stock info
+            updateStockInfo(product.stock);
+        }
+
+        function populateRating(rating, reviewCount) {
+            const starsContainer = document.getElementById('modal-stars');
+            const ratingText = document.getElementById('modal-rating-text');
+            
+            starsContainer.innerHTML = '';
+            
+            for (let i = 1; i <= 5; i++) {
+                const star = document.createElement('i');
+                star.className = i <= rating ? 'fas fa-star star' : 'fas fa-star star empty';
+                starsContainer.appendChild(star);
+            }
+            
+            ratingText.textContent = `${rating}/5 (${reviewCount} değerlendirme)`;
+        }
+
+        function populateFeatures(features) {
+            const featuresContainer = document.getElementById('modal-features');
+            featuresContainer.innerHTML = features.map(feature => 
+                `<span class="feature-tag">${feature}</span>`
+            ).join('');
+        }
+
+        function populateImages(images) {
+            const mainImage = document.getElementById('main-product-image');
+            const thumbnailGallery = document.getElementById('thumbnail-gallery');
+            
+            // Set main image
+            mainImage.src = images[0];
+            mainImage.alt = 'Product Image';
+            
+            // Populate thumbnails
+            thumbnailGallery.innerHTML = images.map((image, index) => `
+                <div class="thumbnail ${index === 0 ? 'active' : ''}" data-image="${image}">
+                    <img src="${image}" alt="Product Image ${index + 1}" />
+                </div>
+            `).join('');
+            
+            // Add thumbnail click listeners
+            thumbnailGallery.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    const imageSrc = this.dataset.image;
+                    mainImage.src = imageSrc;
+                    
+                    // Update active thumbnail
+                    thumbnailGallery.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        }
+
+        function populateColors(colors) {
+            const colorsContainer = document.getElementById('modal-colors');
+            
+            colorsContainer.innerHTML = colors.map((color, index) => `
+                <div class="color-option ${index === 0 ? 'active' : ''}" 
+                     style="background-color: ${color.code}" 
+                     data-color="${color.name}" 
+                     data-image="${color.image}"
+                     title="${color.name}">
+                </div>
+            `).join('');
+            
+            // Add color click listeners
+            colorsContainer.querySelectorAll('.color-option').forEach(colorOption => {
+                colorOption.addEventListener('click', function() {
+                    const colorName = this.dataset.color;
+                    const colorImage = this.dataset.image;
+                    
+                    // Update active color
+                    colorsContainer.querySelectorAll('.color-option').forEach(c => c.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Update main image
+                    document.getElementById('main-product-image').src = colorImage;
+                    
+                    showNotification(`${colorName} rengi seçildi!`, 'info');
+                });
+            });
+        }
+
+        function populateSizes(sizes) {
+            const sizesContainer = document.getElementById('modal-sizes');
+            
+            sizesContainer.innerHTML = sizes.map((size, index) => `
+                <div class="size-option ${!size.available ? 'unavailable' : ''}" 
+                     data-size="${size.size}" 
+                     data-stock="${size.stock}">
+                    ${size.size}
+                </div>
+            `).join('');
+            
+            // Add size click listeners
+            sizesContainer.querySelectorAll('.size-option:not(.unavailable)').forEach(sizeOption => {
+                sizeOption.addEventListener('click', function() {
+                    const sizeName = this.dataset.size;
+                    const sizeStock = this.dataset.stock;
+                    
+                    // Update active size
+                    sizesContainer.querySelectorAll('.size-option').forEach(s => s.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    showNotification(`${sizeName} bedeni seçildi! (${sizeStock} adet stokta)`, 'success');
+                });
+            });
+        }
+
+        function updateStockInfo(stock) {
+            const stockInfo = document.getElementById('modal-stock-info');
+            const stockText = document.getElementById('stock-text');
+            
+            stockInfo.className = 'stock-info';
+            
+            if (stock > 20) {
+                stockInfo.classList.add('');
+                stockText.textContent = `Stokta var (${stock} adet)`;
+                stockInfo.querySelector('i').className = 'fas fa-check-circle';
+            } else if (stock > 0) {
+                stockInfo.classList.add('low-stock');
+                stockText.textContent = `Son ${stock} adet!`;
+                stockInfo.querySelector('i').className = 'fas fa-exclamation-triangle';
+            } else {
+                stockInfo.classList.add('out-of-stock');
+                stockText.textContent = 'Stokta yok';
+                stockInfo.querySelector('i').className = 'fas fa-times-circle';
+            }
+        }
+
+        function setupModalEventListeners(product) {
+            // Close modal
+            document.getElementById('modal-close').addEventListener('click', closeProductModal);
+            
+            // Close on overlay click
+            document.getElementById('product-modal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeProductModal();
+                }
+            });
+            
+            // Close on escape key
+            document.addEventListener('keydown', handleModalKeydown);
+            
+            // Quantity controls
+            setupQuantityControls();
+            
+            // Action buttons
+            setupActionButtons(product);
+        }
+
+        function handleModalKeydown(e) {
+            if (e.key === 'Escape') {
+                closeProductModal();
+            }
+        }
+
+        function setupQuantityControls() {
+            const qtyInput = document.getElementById('qty-input');
+            const qtyDecrease = document.getElementById('qty-decrease');
+            const qtyIncrease = document.getElementById('qty-increase');
+            
+            qtyDecrease.addEventListener('click', function() {
+                const currentValue = parseInt(qtyInput.value);
+                if (currentValue > 1) {
+                    qtyInput.value = currentValue - 1;
+                }
+            });
+            
+            qtyIncrease.addEventListener('click', function() {
+                const currentValue = parseInt(qtyInput.value);
+                const maxValue = parseInt(qtyInput.max);
+                if (currentValue < maxValue) {
+                    qtyInput.value = currentValue + 1;
+                }
+            });
+            
+            qtyInput.addEventListener('change', function() {
+                const value = parseInt(this.value);
+                const min = parseInt(this.min);
+                const max = parseInt(this.max);
+                
+                if (value < min) this.value = min;
+                if (value > max) this.value = max;
+            });
+        }
+
+        function setupActionButtons(product) {
+            const addToCartBtn = document.getElementById('add-to-cart-btn');
+            const buyNowBtn = document.getElementById('buy-now-btn');
+            const wishlistBtn = document.getElementById('wishlist-btn');
+            
+            addToCartBtn.addEventListener('click', function() {
+                const selectedSize = document.querySelector('.size-option.active')?.dataset.size;
+                const selectedColor = document.querySelector('.color-option.active')?.dataset.color;
+                const quantity = document.getElementById('qty-input').value;
+                
+                if (!selectedSize) {
+                    showNotification('Lütfen bir beden seçin!', 'info');
+                    return;
+                }
+                
+                // Add to cart logic here
+                showNotification(`${product.name} sepete eklendi! (Beden: ${selectedSize}, Renk: ${selectedColor}, Adet: ${quantity})`, 'success');
+                
+                // Close modal after adding to cart
+                setTimeout(() => {
+                    closeProductModal();
+                }, 1500);
+            });
+            
+            buyNowBtn.addEventListener('click', function() {
+                const selectedSize = document.querySelector('.size-option.active')?.dataset.size;
+                
+                if (!selectedSize) {
+                    showNotification('Lütfen bir beden seçin!', 'info');
+                    return;
+                }
+                
+                showNotification('Hızlı satın alma özelliği yakında eklenecek!', 'info');
+            });
+            
+            wishlistBtn.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const isActive = this.classList.contains('active');
+                
+                showNotification(
+                    isActive ? `${product.name} favorilere eklendi!` : `${product.name} favorilerden çıkarıldı!`, 
+                    'success'
+                );
+            });
+        }
+
+        function cleanupModalEventListeners() {
+            document.removeEventListener('keydown', handleModalKeydown);
         }
 
         function handleProductKeydown(e) {
